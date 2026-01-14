@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qalamweb CRM</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    body{
+      min-height:100vh;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px;
+    }
+    .card{
+      background:#fff;
+      width:100%;
+      max-width:420px;
+      border-radius:14px;
+      padding:22px;
+      box-shadow:0 15px 40px rgba(0,0,0,.2);
+    }
+    h2{text-align:center;margin-bottom:10px;color:#333}
+    label{font-size:14px;margin-bottom:6px;display:block;color:#444}
+    input,button{
+      width:100%;
+      padding:12px;
+      margin-bottom:14px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:14px;
+    }
+    button{
+      background:#667eea;
+      color:#fff;
+      border:none;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    button:hover{background:#5a6fdc}
+    .hidden{display:none}
+    .brand-top{text-align:center;font-weight:bold;margin-bottom:4px}
+    .crm-text{text-align:center;font-size:24px;font-weight:900;letter-spacing:2px;margin-bottom:16px}
+    .note{text-align:center;font-size:12px;color:#777;margin-top:10px}
+  </style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="card" id="loginPage">
+  <div class="brand-top">QalamWeb Technologies ✅</div>
+  <div class="crm-text">CRM</div>
+
+  <h2>🔐 Login</h2>
+
+  <label>Username</label>
+  <input type="text" id="username" placeholder="Enter username" />
+
+  <label>Password</label>
+  <input type="password" id="password" placeholder="Enter password" />
+
+  <button onclick="login()">Login</button>
+  <p class="note">Powered by <b>QalamWeb Technologies ✅</b></p>
+</div>
+
+<!-- WHATSAPP PAGE -->
+<div class="card hidden" id="messagePage">
+  <h2>📩 WhatsApp Sender</h2>
+  <p style="font-size:13px;color:#666;text-align:center;margin-bottom:12px;">
+    ⚠️ Ye tool <b>sirf Coaching / Tuition Classes</b> ke liye hai
+  </p>
+
+  <label>Business Name</label>
+  <input type="text" id="business" placeholder="ABC Tuition" />
+
+  <label>Mobile Number</label>
+  <input type="tel" id="mobile" placeholder="9876543210" maxlength="10" />
+
+  <button onclick="sendWhatsApp()">📲 Send on WhatsApp</button>
+
+  <p class="note">Powered by <b>QalamWeb Technologies ✅</b></p>
+</div>
+
+<script>
+  function login(){
+    const u=document.getElementById('username').value;
+    const p=document.getElementById('password').value;
+    if(u==='admin' && p==='admin'){
+      alert("🎉 Welcome " + u + "! You have successfully logged in to QalamWeb Technologies CRM.");
+      document.getElementById('loginPage').classList.add('hidden');
+      document.getElementById('messagePage').classList.remove('hidden');
+    }else{
+      alert('Wrong login 😅');
+    }
+  }
+
+  function sendWhatsApp(){
+    const business=document.getElementById('business').value;
+    const mobile=document.getElementById('mobile').value;
+
+    if(!business || !mobile){
+      alert('Business name aur number dono daalo');
+      return;
+    }
+
+    const msg=`Hello Sir 👋\n\nMain website development ka kaam karta hoon.\n\nMaine Google Maps pe ${business} dekha.\n\nAapka tuition achha hai, lekin aapki\nproper website abhi available nahi hai.\n\nAajkal parents pehle website dekhte hain\nphir admission ke liye call karte hain.\n\nMain ${business} ke liye\nfree demo website bana ke dikha sakta hoon.\n\nAgar theek lage to YES reply kar dijiyega 🙂`;
+
+    const url=`https://wa.me/91${mobile}?text=${encodeURIComponent(msg)}`;
+    window.open(url,'_blank');
+
+    // clear fields
+    document.getElementById('business').value='';
+    document.getElementById('mobile').value='';
+  }
+</script>
+
+</body>
+</html>
