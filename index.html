@@ -87,7 +87,7 @@
   function login(){
     const u=document.getElementById('username').value;
     const p=document.getElementById('password').value;
-    if(u==='admin' && p==='admin'){
+    if(u==='kanupriya' && p==='325204112'){
       alert("🎉 Welcome " + u + "! You have successfully logged in to QalamWeb Technologies CRM.");
       document.getElementById('loginPage').classList.add('hidden');
       document.getElementById('messagePage').classList.remove('hidden');
@@ -105,7 +105,7 @@
       return;
     }
 
-    const msg=`Hello Sir 👋\n\nMain website development ka kaam karta hoon.\n\nMaine Google Maps pe ${business} dekha.\n\nAapka tuition achha hai, lekin aapki\nproper website abhi available nahi hai.\n\nAajkal parents pehle website dekhte hain\nphir admission ke liye call karte hain.\n\nMain ${business} ke liye\nfree demo website bana ke dikha sakta hoon.\n\nAgar theek lage to YES reply kar dijiyega 🙂`;
+    const msg=`Hello Sir 👋\n\nMain website development ka kaam karti hoon.\n\nMaine Google Maps pe ${business} dekha.\n\nAapka tuition achha hai, lekin aapki\nproper website abhi available nahi hai.\n\nAajkal parents pehle website dekhte hain\nphir admission ke liye call karte hain.\n\nMain ${business} ke liye\nfree demo website bana ke dikha sakti hoon.\n\nAgar theek lage to YES reply kar dijiyega 🙂`;
 
     const url=`https://wa.me/91${mobile}?text=${encodeURIComponent(msg)}`;
     window.open(url,'_blank');
@@ -117,4 +117,5 @@
 </script>
 
 </body>
+
 </html>
