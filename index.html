@@ -93,7 +93,7 @@ th{
   <input id="business" placeholder="ABC Tuition">
 
   <label>Mobile Number</label>
-  <input id="mobile" placeholder="9876543210">
+  <input id="mobile"  placeholder="9876543210">
 
   <button onclick="sendWhatsApp()">📲 Send on WhatsApp</button>
 
@@ -115,7 +115,7 @@ th{
 function login(){
   const u=username.value;
   const p=password.value;
-  if(u==='admin' && p==='admin'){
+  if(u==='Ali' && p==='Shere'){
     alert("Welcome " + u + " 😎");
     loginPage.classList.add('hidden');
     messagePage.classList.remove('hidden');
@@ -133,7 +133,23 @@ function sendWhatsApp(){
       return;
     }
 
-    const msg=`Hello Sir 👋\n\nMain website development ka kaam karta hoon.\n\nMaine Google Maps pe ${business} dekha.\n\nAapka tuition achha hai, lekin aapki\nproper website abhi available nahi hai.\n\nAajkal parents pehle website dekhte hain\nphir admission ke liye call karte hain.\n\nMain ${business} ke liye\nfree demo website bana ke dikha sakta hoon.\n\nAgar theek lage to YES reply kar dijiyega 🙂`;
+    const msg=`Hello Sir 👋  
+
+Main website development ka kaam karta hoon.
+
+Maine Google Maps pe ${business} dekha.  
+
+Aapka tuition achha hai, lekin aapki  
+proper website abhi available nahi hai.
+
+Aajkal parents pehle website dekhte hain  
+phir admission ke liye call karte hain.
+
+Main ${business} ke liye  
+free demo website bana ke dikha sakta hoon.
+
+Agar aap free demo website banwana chahte hain, to YES reply kar dijiyega 🙂 `;
+
 
     const url=`https://wa.me/91${mobile}?text=${encodeURIComponent(msg)}`;
     window.open(url,'_blank');
@@ -170,5 +186,4 @@ function readCSV(e){
 
 </body>
 </html>
-
 
