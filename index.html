@@ -125,23 +125,23 @@ function login(){
 }
 
 function sendWhatsApp(){
-  if(!business.value || !mobile.value){
-    alert("Data daalo bhai 😄");
-    return;
+    const business=document.getElementById('business').value;
+    const mobile=document.getElementById('mobile').value;
+
+    if(!business || !mobile){
+      alert('Business name aur number dono daalo');
+      return;
+    }
+
+    const msg=`Hello Sir 👋\n\nMain website development ka kaam karta hoon.\n\nMaine Google Maps pe ${business} dekha.\n\nAapka tuition achha hai, lekin aapki\nproper website abhi available nahi hai.\n\nAajkal parents pehle website dekhte hain\nphir admission ke liye call karte hain.\n\nMain ${business} ke liye\nfree demo website bana ke dikha sakta hoon.\n\nAgar theek lage to YES reply kar dijiyega 🙂`;
+
+    const url=`https://wa.me/91${mobile}?text=${encodeURIComponent(msg)}`;
+    window.open(url,'_blank');
+
+    // clear fields
+    document.getElementById('business').value='';
+    document.getElementById('mobile').value='';
   }
-
-  const msg=`Hello Sir 👋
-Main website development ka kaam karta hoon.
-
-Maine Google Maps pe ${business} dekha.
-Aapki proper website abhi nahi hai.
-
-Main free demo bana ke dikha sakta hoon 🙂`;
-
-  window.open(`https://wa.me/91${mobile.value}?text=${encodeURIComponent(msg)}`);
-  business.value='';
-  mobile.value='';
-}
 
 /* CSV READER */
 function readCSV(e){
@@ -170,4 +170,5 @@ function readCSV(e){
 
 </body>
 </html>
+
 
